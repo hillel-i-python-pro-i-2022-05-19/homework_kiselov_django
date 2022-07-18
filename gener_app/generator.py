@@ -3,8 +3,9 @@ from typing import NamedTuple
 
 
 class User(NamedTuple):
-    name:str
-    email:str
+    name: str
+    email: str
+
 
 def gener_one() -> User:
     faker = Faker()
@@ -14,4 +15,3 @@ def gener_one() -> User:
 def generate_users(amount):
     for _ in range(amount):
         yield gener_one()
-

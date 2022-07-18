@@ -4,6 +4,3 @@ from . import views
 urlpatterns = [
     path('users/', views.response, name='usergenerator')
 ]
-
-
-
