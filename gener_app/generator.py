@@ -11,7 +11,7 @@ def gener_one() -> User:
     return User(faker.name(), faker.email())
 
 
-def gener_users(amount):
-    for i in range(amount):
+def generate_users(amount):
+    for _ in range(amount):
         yield gener_one()
 
