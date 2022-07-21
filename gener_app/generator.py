@@ -1,5 +1,6 @@
-from faker import Faker
 from typing import NamedTuple
+
+from faker import Faker
 
 
 class User(NamedTuple):
@@ -7,11 +8,11 @@ class User(NamedTuple):
     email: str
 
 
-def gener_one() -> User:
+def generate_one_user() -> User:
     faker = Faker()
     return User(faker.name(), faker.email())
 
 
 def generate_users(amount):
     for _ in range(amount):
-        yield gener_one()
+        yield generate_one_user()
