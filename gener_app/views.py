@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+
 from .generator import generate_users
 
 
