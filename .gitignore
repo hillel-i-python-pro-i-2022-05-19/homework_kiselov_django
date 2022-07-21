@@ -214,7 +214,3 @@ docker-compose.override.yml
 db/**
 !db/.gitkeep
 
-# Custom files
-settings.py
-
-
