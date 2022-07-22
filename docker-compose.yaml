@@ -8,5 +8,4 @@ services:
     ports:
       - 8000:8000
     environment:
-      - TZ=Europe/Kiev
-      - PYTHONUNBUFFERED=1
+      - UTC+2

@@ -1,11 +1,15 @@
 FROM python:3.8
 
+ENV PYTHONUNBUFFERED=1
 RUN apt-get update
 
 RUN mkdir -p /usr/src/app/
 ARG WORKDIR=/usr/src/app/
 
 WORKDIR ${WORKDIR}
+
+RUN python -m pip install --upgrade pip
+RUN pip install --requirement requirements.txt
 COPY . /usr/src/app/
 
 ARG USER=user
@@ -17,14 +21,11 @@ RUN useradd --system ${USER} --uid=${UID}
 # точнее владельца всех папок \
 RUN chown --recursive ${USER} ${WORKDIR}
 
-RUN python -m pip install --upgrade pip
-RUN pip install --requirement requirements.txt
-
 #Декларируем порт, что бы потом его пробросить:
 EXPOSE 8000
 
 #Укажем переменную окружения:
-ENV TZ Europe/Kiev
+ENV UTC+2
 
 #Переменные окружения используются напр.:
 # Указать путь к какому то файлу, ID-клиентов,
