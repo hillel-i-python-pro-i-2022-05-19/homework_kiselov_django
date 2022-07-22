@@ -1,7 +1,8 @@
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
+
 from .forms import CreateForm, DeleteForm, UpdateForm, UpdateTempForm
 from .models import Contact
-from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
 
 
 def creator(request: HttpRequest) -> HttpResponse:
@@ -40,7 +41,7 @@ def updatortemp(request: HttpRequest) -> HttpResponse:
         return render(request, 'Phone_book/updator.html', {'form': update_form})
 
 
-def updator(request: HttpRequest, name:str) -> HttpResponse:
+def updator(request: HttpRequest, name: str) -> HttpResponse:
     if request.method == "POST":
         update_form = UpdateForm(request.POST)
         if update_form.is_valid():
