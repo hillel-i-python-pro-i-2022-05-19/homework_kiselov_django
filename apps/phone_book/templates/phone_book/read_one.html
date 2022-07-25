@@ -1,0 +1,9 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content %}
+    <p>ИМЯ {{ data.contact_name }} ----- Номер телефона {{ data.phone_value }}</p>
+    <button><a href="{{ data.contact_name }}">Изменить</a></button>
+{% endblock %}
+
+
+

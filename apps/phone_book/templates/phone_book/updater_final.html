@@ -1,0 +1,21 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content%}
+    <style>
+   input {
+    margin: 0; /* Обнуляем значение отступов */
+    margin-top: 15px; /* Значение полей */
+   }
+    </style>
+
+    <title>Изменить контакт</title>
+    <form method="post">
+    {% csrf_token %}
+    {{ form}}
+    <input type="submit" value="Submit">
+    </form>
+    <input type="submit" value="ГЛАВНАЯ" onclick="location.href='http://0.0.0.0:8000/contact/{{name}}'">
+{% endblock %}
+
+
+

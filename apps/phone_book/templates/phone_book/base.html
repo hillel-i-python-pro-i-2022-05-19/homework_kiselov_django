@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+   ul.hr {
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 15px; /* Значение полей */
+   }
+   ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+    margin: 5px; /* Отступ слева */
+    border: 1px solid #000; /* Рамка вокруг текста */
+    padding: 3px; /* Поля вокруг текста */
+   }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <ul class="hr">
+        <li><a href = 'http://0.0.0.0:8000/contact/create'>Добавить новый контакт</a></li>
+        <li><a href = 'http://0.0.0.0:8000/contact/read'>Показать контакты</a></li>
+        <li><a href = 'http://0.0.0.0:8000/contact/update'>Изменить контакт</a></li>
+        <li><a href = 'http://0.0.0.0:8000/contact/delete'>Удалить контакт</a></li>
+    </ul>
+</head>
+<body>
+    {% block content%} {% endblock %}
+</body>
+</html>

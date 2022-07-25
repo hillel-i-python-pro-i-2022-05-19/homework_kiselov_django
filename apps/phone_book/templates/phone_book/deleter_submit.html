@@ -1,0 +1,7 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content %}
+    <br>Вы уверены, что хотите удалить контакт?</br>
+    <input type="submit" value="ДА" onclick="location.href='http://0.0.0.0:8000/contact/delete_final/{{ name }}'">
+    <input type="submit" value="ГЛАВНАЯ" onclick="location.href='http://0.0.0.0:8000/contact/{{ name }}'">
+{% endblock %}

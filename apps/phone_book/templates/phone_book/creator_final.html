@@ -1,0 +1,19 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content%}
+    <style>
+   input {
+    margin: 0; /* Обнуляем значение отступов */
+    margin-top: 15px; /* Значение полей */
+   }
+    </style>
+    <p>"Новый контакт успешно добавлен"</p>
+    <input type="submit" value="Добавить ещё один контакт" onclick="location.href='http://0.0.0.0:8000/contact/create/{{name}}'">
+    <input type="submit" value="ГЛАВНАЯ" onclick="location.href='http://0.0.0.0:8000/contact/{{name}}'">
+{% endblock %}
+
+
+
+
+
+

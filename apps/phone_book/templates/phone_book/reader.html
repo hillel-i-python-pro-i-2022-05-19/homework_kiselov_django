@@ -1,0 +1,16 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content %}
+    <style>
+        input {
+            margin: 0; /* Обнуляем значение отступов */
+            margin-top: 15px; /* Значение полей */
+        }
+    </style>
+    {% for el in data %}
+        <p>ИМЯ: {{ el.contact_name }}----- Номер телефона: {{ el.phone_value }}</p>
+    {% endfor %}
+    <input type="submit" value="ГЛАВНАЯ" onclick="location.href='http://0.0.0.0:8000/contact/{{ name }}'">
+{% endblock %}
+
+
