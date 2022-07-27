@@ -10,7 +10,9 @@
     {% for el in data %}
         <p><a href='{{ el.contact_name }}'>ИМЯ: {{ el.contact_name }} ----- Номер телефона: {{ el.phone_value }}</a></p>
     {% endfor %}
-    <input type="submit" value="ГЛАВНАЯ" onclick="location.href='http://0.0.0.0:8000/contact/{{ name }}'">
+    {% url 'main_page' as main_url %}
+    <button><a href="{{ main_url }}">Главная</a></button>
+
 {% endblock %}
 
 

@@ -19,7 +19,7 @@ def creator(request: HttpRequest) -> HttpResponse:
                 Contact.objects.create(contact_name=name, phone_value=phone)
                 return render(request, 'phone_book/creator_final.html')
             else:
-                raise ValueError("Контакт с таким именем или номером телефона уже существует")
+                return render(request,'phone_book/creator_error.html')
     else:
         form = CreateForm()
     return render(request, 'phone_book/creator.html', {'form': form})
@@ -41,11 +41,11 @@ def updater(request: HttpRequest, name: str) -> HttpResponse:
         if update_form.is_valid():
             new_name = update_form.cleaned_data.get("contact_name")
             new_phone = update_form.cleaned_data.get("phone_value")
-            if Contact.objects.filter(contact_name=name):
-                Contact.objects.filter(contact_name=name).update(contact_name=new_name, phone_value=new_phone)
-                return HttpResponse("Контакт успешно изменён")
-            else:
-                return HttpResponse("Такого контакта нет")
+            # if Contact.objects.filter(contact_name=name):
+            Contact.objects.filter(contact_name=name).update(contact_name=new_name, phone_value=new_phone)
+            return render(request, 'phone_book/updater_success.html')
+            # else:
+            #     return HttpResponse("Такого контакта нет")
     else:
         phone = Contact.objects.filter(contact_name=name).values()[0].get('phone_value')
         update_form = UpdateForm(initial={'contact_name': name, 'phone_value': phone})
@@ -63,4 +63,4 @@ def deleter(request: HttpRequest, name: str) -> HttpResponse:
 
 def deleter_final(request: HttpRequest, name: str) -> HttpResponse:
     Contact.objects.filter(contact_name=name).delete()
-    return HttpResponse("Контакт успешно удалён")
+    return render(request, 'phone_book/deleter_success.html')

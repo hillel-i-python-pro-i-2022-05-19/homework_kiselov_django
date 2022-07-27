@@ -1,20 +1,15 @@
 {% extends 'phone_book/base.html' %}
 
 {% block content %}
-    <style>
-        input.main {
-            margin: 0; /* Обнуляем значение отступов */
-            margin-top: 15px; /* Значение полей */
-        }
-    </style>
-
     <title>Добавление нового контакта</title>
     <form method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Добавить">
+        <button>Добавить</button>
     </form>
-    <input class='main' type="submit" value="ГЛАВНАЯ" onclick="location.href='http://0.0.0.0:8000/contact/{{ name }}'">
+    {% url 'main_page' as main_url %}
+    <button><a href="{{ main_url }}">Главная</a></button>
+
 {% endblock %}
 
 

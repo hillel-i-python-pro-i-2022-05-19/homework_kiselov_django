@@ -34,5 +34,5 @@ EXPOSE 8000
 
 # Переменную окружения так же можно указать при сборке контейнера:
 #docker run -p 8080:8080 -e TZ Europe/Kiev имя
-
+VOLUME ${WORKDIR}/db
 CMD python3 manage.py makemigrations; python3 manage.py migrate; python3 manage.py runserver 0.0.0.0:8000

@@ -10,3 +10,5 @@ class CreateForm(forms.Form):
 class UpdateForm(forms.Form):
     contact_name = forms.CharField(label='Введите новое имя', max_length=100, required=False)
     phone_value = PhoneNumberField(label=("Введите новый номер телефона"), required=False)
+
+

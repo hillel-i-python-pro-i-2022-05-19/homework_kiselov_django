@@ -2,6 +2,8 @@
 
 {% block content %}
     <br>Вы уверены, что хотите удалить контакт?</br>
-    <input type="submit" value="ДА" onclick="location.href='http://0.0.0.0:8000/contact/delete_final/{{ name }}'">
-    <input type="submit" value="ГЛАВНАЯ" onclick="location.href='http://0.0.0.0:8000/contact/{{ name }}'">
+    {% url 'contactdeleter_final' name as del_url %}
+    <input type="submit" value="ДА" onclick="location.href='{{ del_url }}'">
+     {% url 'main_page' as main_url %}
+    <button><a href="{{ main_url }}">Главная</a></button>
 {% endblock %}

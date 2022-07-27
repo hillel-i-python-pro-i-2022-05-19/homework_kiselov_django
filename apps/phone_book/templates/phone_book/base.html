@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<style>
+<head>
+    <meta charset="UTF-8">
+
+    <style>
    ul.hr {
     margin: 0; /* Обнуляем значение отступов */
     padding: 15px; /* Значение полей */
@@ -12,18 +15,32 @@
     border: 1px solid #000; /* Рамка вокруг текста */
     padding: 3px; /* Поля вокруг текста */
    }
+
+   button {
+       margin: 0; /* Обнуляем значение отступов */
+       margin-top: 15px; /* Значение полей */
+    }
 </style>
 
-<head>
-    <meta charset="UTF-8">
-    <ul class="hr">
-        <li><a href = 'http://0.0.0.0:8000/contact/create'>Добавить новый контакт</a></li>
-        <li><a href = 'http://0.0.0.0:8000/contact/read'>Показать контакты</a></li>
-        <li><a href = 'http://0.0.0.0:8000/contact/update'>Изменить контакт</a></li>
-        <li><a href = 'http://0.0.0.0:8000/contact/delete'>Удалить контакт</a></li>
-    </ul>
 </head>
 <body>
+    {% url 'main_page' as main_page %}
+    {% url 'contactcreator' as add_url %}
+    {% url 'contactreader' as read_url %}
+    {% url 'contactupdater_temp' as upt_url %}
+    {% url 'contactdeleter_temp' as del_url %}
+    <ul class="hr">
+        <li><a href = '{{ main_page }}'>Главная</a></li>
+        <li><a href = '{{ add_url }}'>Добавить новый контакт</a></li>
+        <li><a href = '{{ read_url }}'>Показать контакты</a></li>
+        <li><a href = '{{ upt_url }}'>Изменить контакт</a></li>
+        <li><a href = '{{ del_url }}'>Удалить контакт</a></li>
+    </ul>
     {% block content%} {% endblock %}
 </body>
 </html>
+
+
+
+
+

@@ -4,11 +4,11 @@ from . import views
 
 urlpatterns = [
     path('', views.main_page, name='main_page'),
-    path('create/', views.creator, name='contactcreator'),
-    path('read/', views.reader, name='contactreader'),
-    path('update/', views.updatertemp, name='contactupdator_temp'),
-    path('update/<str:name>', views.updater, name='contactupdater'),
-    path('delete/', views.deletertemp, name='contactdeleter_temp'),
-    path('delete/<str:name>', views.deleter, name='contactdeleter'),
-    path('delete_final/<str:name>', views.deleter_final, name='contactdeleter_final')
+    path('create_contact/', views.creator, name='contactcreator'),
+    path('read_contact/', views.reader, name='contactreader'),
+    path('update_contact/', views.updatertemp, name='contactupdater_temp'),
+    path('update_contact/<str:name>', views.updater, name='contactupdater'),
+    path('delete_contact/', views.deletertemp, name='contactdeleter_temp'),
+    path('delete_contact/<str:name>', views.deleter, name='contactdeleter'),
+    path('delete_contact_final/<str:name>', views.deleter_final, name='contactdeleter_final')
 ]
