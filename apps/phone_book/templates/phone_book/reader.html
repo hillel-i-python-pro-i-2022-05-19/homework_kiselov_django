@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for el in data %}
+<br>ИМЯ: {{el.contact_name}}</br>
+<br>День Рождения: {{el.birthday}}</br>
+<br>Теги: {% for tag in el.tags.all %}
+{{tag.tag}},
+{% endfor %}
+</br>
+
+<br>Тип контакта: {% for contact in el.contact_value.all %}
+{{contact.contact_type}} - {{contact.contact_value}},
+{% endfor %}</br>
+{% endfor %}
+
+</body>
+</html>
+
+

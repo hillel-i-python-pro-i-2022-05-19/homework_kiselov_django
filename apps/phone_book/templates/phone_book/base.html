@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+   ul.hr {
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 15px; /* Значение полей */
+   }
+   ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+    margin: 5px; /* Отступ слева */
+    border: 1px solid #000; /* Рамка вокруг текста */
+    padding: 3px; /* Поля вокруг текста */
+   }
+</style>
+
+</head>
+<body>
+    {% url 'contactreader' as read_url %}
+    <ul class="hr">
+        <li><a href = '{{ read_url }}'>Показать контакты</a></li>
+    </ul>
+    {% block content%} {% endblock %}
+</body>
+</html>

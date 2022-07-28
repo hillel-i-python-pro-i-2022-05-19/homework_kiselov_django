@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class PhoneBookConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.Phone_book'
+    name = 'apps.phone_book'
