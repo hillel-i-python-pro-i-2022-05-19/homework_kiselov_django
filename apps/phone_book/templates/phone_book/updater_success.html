@@ -1,9 +1,0 @@
-{% extends 'phone_book/base.html' %}
-
-{% block content%}
-    <p>Контакт успешно обновлён</p>
-     {% url 'contactupdater_temp' as upt_url %}
-     <button><a href = '{{ upt_url }}'>Обновить ещё один контакт</a></button>
-     {% url 'main_page' as main_url %}
-    <button><a href="{{ main_url }}">Главная</a></button>
-{% endblock %}

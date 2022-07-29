@@ -1,14 +1,12 @@
 from django.urls import path
-
-from . import views
+from .views import Main_pageView, ReaderView, DeleterView, CreaterView, DeleterListView, UpdaterListView, UpdaterView
 
 urlpatterns = [
-    path('', views.main_page, name='main_page'),
-    path('create_contact/', views.creator, name='contactcreator'),
-    path('read_contact/', views.reader, name='contactreader'),
-    path('update_contact/', views.updatertemp, name='contactupdater_temp'),
-    path('update_contact/<str:name>', views.updater, name='contactupdater'),
-    path('delete_contact/', views.deletertemp, name='contactdeleter_temp'),
-    path('delete_contact/<str:name>', views.deleter, name='contactdeleter'),
-    path('delete_contact_final/<str:name>', views.deleter_final, name='contactdeleter_final')
+    path('', Main_pageView.as_view(), name='main_page'),
+    path('create_contact/', CreaterView.as_view(), name='contactcreator'),
+    path('read_contact/', ReaderView.as_view(), name='contactreader'),
+    path('update_contact/', UpdaterListView.as_view(), name='contactupdater_temp'),
+    path('update_contact/<int:pk>', UpdaterView.as_view(), name='contactupdater'),
+    path('delete_contact/', DeleterListView.as_view(), name='contactdeleter_temp'),
+    path('delete_contact/<int:pk>', DeleterView.as_view(), name='contactdeleter'),
 ]

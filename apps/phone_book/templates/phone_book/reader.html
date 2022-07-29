@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    {% for el in data %}
+    {% for el in object_list %}
         <p>ИМЯ: {{ el.contact_name }}----- Номер телефона: {{ el.phone_value }}</p>
     {% endfor %}
     {% url 'main_page' as main_url %}

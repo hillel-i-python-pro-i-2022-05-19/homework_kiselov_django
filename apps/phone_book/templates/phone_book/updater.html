@@ -7,8 +7,8 @@
             margin_top: 15px; /* Значение полей */
         }
     </style>
-    {% for el in data %}
-        <p><a href='{{ el.contact_name }}'>ИМЯ: {{ el.contact_name }} ----- Номер телефона: {{ el.phone_value }}</a></p>
+    {% for el in object_list %}
+        <p><a href='{{ el.id }}'>ИМЯ: {{ el.contact_name }} ----- Номер телефона: {{ el.phone_value }}</a></p>
     {% endfor %}
     {% url 'main_page' as main_url %}
     <button><a href="{{ main_url }}">Главная</a></button>
