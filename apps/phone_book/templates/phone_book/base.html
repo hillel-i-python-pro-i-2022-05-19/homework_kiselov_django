@@ -24,17 +24,12 @@
 
 </head>
 <body>
-    {% url 'main_page' as main_page %}
-    {% url 'contactcreator' as add_url %}
-    {% url 'contactreader' as read_url %}
-    {% url 'contactupdater_temp' as upt_url %}
-    {% url 'contactdeleter_temp' as del_url %}
     <ul class="hr">
-        <li><a href = '{{ main_page }}'>Главная</a></li>
-        <li><a href = '{{ add_url }}'>Добавить новый контакт</a></li>
-        <li><a href = '{{ read_url }}'>Показать контакты</a></li>
-        <li><a href = '{{ upt_url }}'>Изменить контакт</a></li>
-        <li><a href = '{{ del_url }}'>Удалить контакт</a></li>
+        <li><a href = {% url 'main_page' %}>Главная</a></li>
+        <li><a href = {% url 'contactcreator' %} >Добавить новый контакт</a></li>
+        <li><a href = {% url 'contactreader' %}>Показать контакты</a></li>
+        <li><a href = {% url 'contactupdater_temp' %}>Изменить контакт</a></li>
+        <li><a href = {% url 'contactdeleter_temp' %}>Удалить контакт</a></li>
     </ul>
     {% block content%} {% endblock %}
 </body>

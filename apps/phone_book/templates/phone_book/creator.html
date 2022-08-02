@@ -7,8 +7,7 @@
         {{ form }}
         <button>Добавить</button>
     </form>
-    {% url 'main_page' as main_url %}
-    <button><a href="{{ main_url }}">Главная</a></button>
+    <button><a href={% url 'main_page' %}>Главная</a></button>
 
 {% endblock %}
 

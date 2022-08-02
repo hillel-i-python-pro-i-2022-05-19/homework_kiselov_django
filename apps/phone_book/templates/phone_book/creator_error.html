@@ -2,10 +2,8 @@
 
 {% block content%}
     <p>Контакт с таким именем или номером телефона уже существует</p>
-     {% url 'contactcreator' as add_url %}
-     <button><a href = '{{ add_url }}'>Добавить ещё один контакт</a></button>
-     {% url 'main_page' as main_url %}
-    <button><a href="{{ main_url }}">Главная</a></button>
+     <button><a href = {% url 'contactcreator' %}>Добавить ещё один контакт</a></button>
+    <button><a href={% url 'main_page' %}>Главная</a></button>
 
 {% endblock %}
 

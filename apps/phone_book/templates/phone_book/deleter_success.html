@@ -2,10 +2,8 @@
 
 {% block content%}
     <p>Контакт успешно удалён</p>
-     {% url 'contactdeleter_temp' as del_url %}
-     <button><a href = '{{ del_url }}'>Удалить ещё один контакт</a></button>
-     {% url 'main_page' as main_url %}
-    <button><a href="{{ main_url }}">Главная</a></button>
+     <button><a href = {% url 'contactdeleter_temp' %}>Удалить ещё один контакт</a></button>
+    <button><a href={% url 'main_page' %}>Главная</a></button>
 
 {% endblock %}
 
