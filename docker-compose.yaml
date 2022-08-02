@@ -5,6 +5,8 @@ services:
   app:
     build: .
     restart: always
+    volumes:
+      - '.:/usr/src/app/db:rw'
     ports:
       - 8000:8000
     environment:

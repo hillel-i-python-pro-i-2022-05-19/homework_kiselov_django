@@ -1,11 +1,11 @@
-from django.http import HttpResponse, HttpRequest
-from django.shortcuts import render
 from .models import Contact
 from django.views.generic import TemplateView, ListView, DeleteView, CreateView, UpdateView
-from django.urls import reverse_lazy
 
-class Main_pageView(TemplateView):
-    template_name =  'phone_book/base.html'
+from .models import Contact
+
+
+class MainpageView(TemplateView):
+    template_name = 'phone_book/base.html'
 
 class ReaderView(ListView):
     model = Contact
@@ -21,16 +21,15 @@ class DeleterView(DeleteView):
     template_name = "phone_book/contact_confirm_delete.html"
 
 
-class CreaterView(CreateView):
+class CreatorView(CreateView):
     model = Contact
     template_name = 'phone_book/creator.html'
-    fields = ['contact_name','phone_value']
+    fields = ['contact_name', 'phone_value']
     success_url = reverse_lazy('contactcreator')
 
 class UpdaterListView(ListView):
     model = Contact
     template_name = 'phone_book/updater.html'
-
 
 class UpdaterView(UpdateView):
     model = Contact
