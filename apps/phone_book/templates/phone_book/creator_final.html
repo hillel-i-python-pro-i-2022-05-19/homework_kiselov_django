@@ -1,8 +1,8 @@
 {% extends 'phone_book/base.html' %}
 
-{% block content%}
+{% block content %}
     <p>Новый контакт успешно добавлен</p>
-     <button><a href = {% url 'contactcreator' %}>Добавить ещё один контакт</a></button>
+    <button><a href= {% url 'contactcreator' %}>Добавить ещё один контакт</a></button>
     <button><a href={% url 'main_page' %}>Главная</a></button>
 
 {% endblock %}

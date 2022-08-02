@@ -5,33 +5,34 @@
     <meta charset="UTF-8">
 
     <style>
-   ul.hr {
-    margin: 0; /* Обнуляем значение отступов */
-    padding: 15px; /* Значение полей */
-   }
-   ul.hr li {
-    display: inline; /* Отображать как строчный элемент */
-    margin: 5px; /* Отступ слева */
-    border: 1px solid #000; /* Рамка вокруг текста */
-    padding: 3px; /* Поля вокруг текста */
-   }
+        ul.hr {
+            margin: 0; /* Обнуляем значение отступов */
+            padding: 15px; /* Значение полей */
+        }
 
-   button {
-       margin: 0; /* Обнуляем значение отступов */
-       margin-top: 15px; /* Значение полей */
-    }
-</style>
+        ul.hr li {
+            display: inline; /* Отображать как строчный элемент */
+            margin: 5px; /* Отступ слева */
+            border: 1px solid #000; /* Рамка вокруг текста */
+            padding: 3px; /* Поля вокруг текста */
+        }
+
+        button {
+            margin: 0; /* Обнуляем значение отступов */
+            margin-top: 15px; /* Значение полей */
+        }
+    </style>
 
 </head>
 <body>
-    <ul class="hr">
-        <li><a href = {% url 'main_page' %}>Главная</a></li>
-        <li><a href = {% url 'contactcreator' %} >Добавить новый контакт</a></li>
-        <li><a href = {% url 'contactreader' %}>Показать контакты</a></li>
-        <li><a href = {% url 'contactupdater_temp' %}>Изменить контакт</a></li>
-        <li><a href = {% url 'contactdeleter_temp' %}>Удалить контакт</a></li>
-    </ul>
-    {% block content%} {% endblock %}
+<ul class="hr">
+    <li><a href= {% url 'main_page' %}>Главная</a></li>
+    <li><a href={% url 'contactcreator' %}>Добавить новый контакт</a></li>
+    <li><a href= {% url 'contactreader' %}>Показать контакты</a></li>
+    <li><a href= {% url 'contactupdater_temp' %}>Изменить контакт</a></li>
+    <li><a href= {% url 'contactdeleter_temp' %}>Удалить контакт</a></li>
+</ul>
+{% block content %} {% endblock %}
 </body>
 </html>
 

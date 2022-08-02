@@ -1,18 +1,18 @@
 {% extends 'phone_book/base.html' %}
 
-{% block content%}
+{% block content %}
     <style>
-   input {
-    margin: 0; /* Обнуляем значение отступов */
-    margin-top: 15px; /* Значение полей */
-   }
+        input {
+            margin: 0; /* Обнуляем значение отступов */
+            margin-top: 15px; /* Значение полей */
+        }
     </style>
 
     <title>Изменить контакт</title>
     <form method="post">
-    {% csrf_token %}
-    {{ form}}
-    <button>Обновить</button>
+        {% csrf_token %}
+        {{ form }}
+        <button>Обновить</button>
     </form>
     <button><a href={% url 'main_page' %}>Главная</a></button>
 
