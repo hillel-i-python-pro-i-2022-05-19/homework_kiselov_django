@@ -1,10 +1,8 @@
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
 from .models import Contact
-import
 
 def main_page(request: HttpRequest) -> HttpResponse:
-    print(environ)
     return render(request, 'phone_book/base.html')
 
 

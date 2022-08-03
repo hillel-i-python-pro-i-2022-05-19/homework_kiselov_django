@@ -1,4 +1,8 @@
-# Make some initialization steps. For example, copy configs.
+.PHONY: init-dev-i-create-superuser
+init-dev-i-create-superuser:
+	@DJANGO_SUPERUSER_PASSWORD=admin123 python manage.py createsuperuser --user admin --email admin@gmail.com --no-input
+
+
 .PHONY: init-configs-i-dev
 init-configs-i-dev:
     # копируем файл docker-compose.override.dev.yml(копия нашего Docker-compose, который не пушится)

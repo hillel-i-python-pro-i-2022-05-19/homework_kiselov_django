@@ -22,9 +22,9 @@ class ContactDetailForm(forms.ModelForm):
         return cleaned_data
 
 
-@admin.register(Contact)
-class ContactAdmin(admin.ModelAdmin):
-    list_display = ['contact_name', 'birthday']
+
+class ContactAdmin(admin.TabularInline):
+    model = Contact
 
 
 @admin.register(Tag)
@@ -33,6 +33,5 @@ class TagsAdmin(admin.ModelAdmin):
 
 
 @admin.register(ContactDetail)
-class ContactAdmin(admin.ModelAdmin):
-    form = ContactDetailForm
-    list_display = ['contact_type', 'contact_value']
+class ContactDetailAdmin(admin.ModelAdmin):
+    inlines = [ContactAdmin,]

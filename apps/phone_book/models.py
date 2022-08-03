@@ -32,7 +32,7 @@ class Contact(models.Model):
     contact_name = models.CharField('Name', help_text='Contact_name', max_length=255, null=False, unique=True)
     birthday = models.DateField('Birth', help_text='date_of_birth', default=datetime.strptime('20/07/1998', "%d/%m/%Y"))
     tags = models.ManyToManyField(Tag, related_name="tags")
-    contact_value = models.ManyToManyField(ContactDetail, related_name="contact_detail")
+    contact_value = models.ForeignKey(ContactDetail, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return f'{self.contact_name} - {self.birthday}'
