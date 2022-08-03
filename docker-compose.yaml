@@ -6,9 +6,9 @@ services:
     build: .
     restart: always
     volumes:
-      - '.:/usr/src/app/db:rw'
+      - './db:/usr/src/app/db:rw'
     ports:
       - 8000:8000
     environment:
-      - UTC+2
+      - TZ=Europe/Kiev
       - PYTHONUNBUFFERED=1

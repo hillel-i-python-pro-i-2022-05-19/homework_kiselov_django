@@ -1,6 +1,6 @@
 from .models import Contact
 from django.views.generic import TemplateView, ListView, DeleteView, CreateView, UpdateView
-
+from django.urls import reverse_lazy
 from .models import Contact
 
 
