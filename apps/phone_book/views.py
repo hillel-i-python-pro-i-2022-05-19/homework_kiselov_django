@@ -1,8 +1,7 @@
 from .models import Contact
 from django.views.generic import TemplateView, ListView, DeleteView, CreateView, UpdateView
-
 from .models import Contact
-
+from django.urls import reverse_lazy
 
 class MainpageView(TemplateView):
     template_name = 'phone_book/base.html'
