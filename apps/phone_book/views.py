@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from .models import Contact
 
 
-class MainpageView(TemplateView):
+class MainPageView(TemplateView):
     template_name = 'phone_book/base.html'
 
 class ReaderView(ListView):
