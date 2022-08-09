@@ -4,8 +4,7 @@ from django.contrib import admin
 from django.core.exceptions import ValidationError
 
 from .contact_validator import contact_validator
-from .models import Contact, Tag
-from .models import ContactDetail
+from .models import Contact, Tag, ContactDetail
 
 
 class ContactDetailForm(forms.ModelForm):
@@ -22,9 +21,9 @@ class ContactDetailForm(forms.ModelForm):
         return cleaned_data
 
 
-
-class ContactAdmin(admin.TabularInline):
-    model = Contact
+class ContactDetailInline(admin.TabularInline):
+    model = ContactDetail
+    form = ContactDetailForm
 
 
 @admin.register(Tag)
@@ -32,6 +31,11 @@ class TagsAdmin(admin.ModelAdmin):
     list_display = ['tag']
 
 
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    inlines = [ContactDetailInline, ]
+
+
 @admin.register(ContactDetail)
 class ContactDetailAdmin(admin.ModelAdmin):
-    inlines = [ContactAdmin,]
+    list_display = ['contact_type', 'contact_value', 'contact']
