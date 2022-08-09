@@ -48,6 +48,17 @@ d-stop:
 d-purge:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose down --volumes --remove-orphans --rmi local --timeout 0
 
+
+.PHONY: django-i-create-contact-i-2
+django-i-create-contact-i-2:
+	@python manage.py create_contact 2
+
+
+.PHONY: d-i-django-i-create-contact-i-2
+d-i-django-i-create-contact-i-2:
+	@docker-compose run --rm app make django-i-create-contact-i-2
+
+
 # Эта инструкция указывает docker-compose использовать Docker CLI при выполнении сборки. Вы должны увидеть тот же результат сборки,
 # но начиная с экспериментального предупреждения.
 # COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build
@@ -60,3 +71,5 @@ d-purge:
 
 # По сути DOCKER_BUILDKIT это сборщик, который имеет дополнительные фичи, такие как кеширование, конкурентность и т.д
 # ускоряет сборку контейнеров
+
+
