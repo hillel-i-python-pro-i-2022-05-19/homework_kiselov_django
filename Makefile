@@ -1,9 +1,10 @@
 # Make some initialization steps. For example, copy configs.
 .PHONY: init-configs-i-dev
 init-configs-i-dev:
-    # копируем файл docker-compose.override.dev.yml(копия нашего Docker-compose, который не пушится)
+    # копируем файл docker-compose.override.dev.yml(копия нашего Docker-compose.override.yml, который не пушится)
     # @ - нужна для того, что бы сама команда, которая выполняется не печаталась
-	@cp docker-compose.override.dev.yml docker-compose.override.yml
+	@cp docker-compose.override.dev.yml docker-compose.override.yml && \
+    cp .env.example .env
 
 .PHONY: d-run
 # Just run
@@ -17,6 +18,10 @@ d-homework-i-run:
 # # @ - Полная сборка контейнера(копирование docker-compose(из шаблона) далее создание контейнера и запуск)
 	@make init-configs-i-dev && \
 	make d-run
+
+.PHONY: d-run-i-db
+d-run-i-db:
+    @COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose up --build postgres
 
 .PHONY: d-homework-i-purge
 # Make all actions needed for purge homework related data.

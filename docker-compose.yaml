@@ -6,24 +6,18 @@ volumes:
   postgres_data: {}
 
 services:
-
   postgres:
 #    образ, который мы с вами вытягиваем
     image: postgres:14.4
     restart: always
     volumes:
-      - ./init.sh:/docker-entrypoint-initdb.d/init.sh
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
     env_file:
       - .env
 
   app:
     build: .
     restart: always
-    ports:
-      - 8000:8000
     environment:
       - UTC+2
       - PYTHONUNBUFFERED=1

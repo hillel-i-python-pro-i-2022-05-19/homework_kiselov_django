@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str('POSTGRES_DB'),
         'USER': env.str('POSTGRES_USER'),
+        'NAME': env.str('POSTGRES_DB'),
         'PASSWORD': env.str('POSTGRES_PASSWORD'),
         # если мы собираемся использовать в контейнере, то host - это название сервиса
         # если запускаем локально, то оставим localhost, при этом необходимо будет прокинуть порты
@@ -85,15 +85,6 @@ DATABASES = {
         'PORT': env.str('POSTGRES_PORT'),
     }
 }
-
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': str(BASE_DIR.joinpath('db', "db.sqlite3")),
-#     }
-# }
 
 
 

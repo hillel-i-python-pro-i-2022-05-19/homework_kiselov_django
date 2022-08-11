@@ -11,6 +11,10 @@ WORKDIR ${WORKDIR}
 RUN python -m pip install --upgrade pip
 COPY requirements.txt requirements.txt
 RUN pip install --requirement requirements.txt
+
+COPY --chmod=755 ./docker/app/entrypoint.sh /entrypoint.sh
+COPY --chmod=755 ./docker/app/start.sh /start.sh
+
 COPY . /usr/src/app/
 
 ARG USER=user
@@ -23,7 +27,6 @@ RUN useradd --system ${USER} --uid=${UID}
 RUN chown --recursive ${USER} ${WORKDIR}
 
 #Декларируем порт, что бы потом его пробросить:
-EXPOSE 8000
 
 #Укажем переменную окружения:
 #ENV UTC+2
@@ -34,10 +37,12 @@ EXPOSE 8000
 
 # Переменную окружения так же можно указать при сборке контейнера:
 #docker run -p 8080:8080 -e TZ Europe/Kiev имя
-VOLUME ${WORKDIR}/db
-CMD  python3 manage.py makemigrations; python3 manage.py migrate; python3 manage.py runserver 0.0.0.0:8000
 
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/start.sh"]
 
+#Декларируем порт, что бы потом его пробросить:
+EXPOSE 8000
 
 
 
