@@ -21,7 +21,10 @@ d-homework-i-run:
 
 .PHONY: d-run-i-db
 d-run-i-db:
-    @COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose up --build postgres
+	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose up --build postgres
+
+
+
 
 .PHONY: d-homework-i-purge
 # Make all actions needed for purge homework related data.
@@ -62,6 +65,7 @@ django-i-create-contact-i-2:
 .PHONY: d-i-django-i-create-contact-i-2
 d-i-django-i-create-contact-i-2:
 	@docker-compose run --rm app make django-i-create-contact-i-2
+
 
 
 # Эта инструкция указывает docker-compose использовать Docker CLI при выполнении сборки. Вы должны увидеть тот же результат сборки,
