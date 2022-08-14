@@ -1,0 +1,16 @@
+repos:
+#  Первое действие, которое будет делаться перед коммитом(в нашем случае сработает black)
+  - repo: https://github.com/psf/black
+    rev: 22.6.0
+    hooks:
+      - id: black
+        # It is recommended to specify the latest version of Python
+        # supported by your project here, or alternatively use
+        # pre-commit's default_language_version, see
+        # https://pre-commit.com/#top_level-default_language_version
+        language_version: python3.8
+
+
+
+#Что бы запустить pre-commit не только на те файлы, которые обновились, а на весь проект:
+#-pre-commit --all-files

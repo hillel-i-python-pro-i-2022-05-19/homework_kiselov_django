@@ -6,6 +6,7 @@ from typing import Iterator
 
 faker = Faker()
 
+
 def contact_generator(amount_of_contacts) -> Iterator[Contact]:
     for _ in range(amount_of_contacts):
         contact = Contact(
@@ -17,24 +18,21 @@ def contact_generator(amount_of_contacts) -> Iterator[Contact]:
 
 
 class Command(BaseCommand):
-    help = 'Create contact'
+    help = "Create contact"
 
     def add_arguments(self, parser):
-        parser.add_argument('amount', type=int)
+        parser.add_argument("amount", type=int)
 
     def handle(self, *args, **options):
-        amount_of_contact = options['amount']
+        amount_of_contact = options["amount"]
 
-        logger = logging.getLogger('create_contacts')
+        logger = logging.getLogger("create_contacts")
 
-        logger.info(f'Amount of contacts before: {Contact.objects.count()}')
+        logger.info(f"Amount of contacts before: {Contact.objects.count()}")
 
         generator_object = contact_generator(amount_of_contact)
         for el in generator_object:
             print(el)
         # contact_list = [f'{el.contact_name}{el.phone_value}' for el in generator_object]
 
-        logger.info(f'Amount of contacts after: {Contact.objects.count()}')
-
-
-
+        logger.info(f"Amount of contacts after: {Contact.objects.count()}")

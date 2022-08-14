@@ -67,6 +67,14 @@ d-i-django-i-create-contact-i-2:
 	@docker-compose run --rm app make django-i-create-contact-i-2
 
 
+.PHONY: init-dev
+# начальные действия, необходимые при разработке(без запуска в докере)
+init-dev:
+	@pip install --upgrade pip && \
+	pip install --requirement requirements.txt && \
+	pre-commit install
+
+
 
 # Эта инструкция указывает docker-compose использовать Docker CLI при выполнении сборки. Вы должны увидеть тот же результат сборки,
 # но начиная с экспериментального предупреждения.
