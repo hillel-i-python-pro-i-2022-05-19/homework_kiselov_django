@@ -1,0 +1,15 @@
+# Меняем json на pylint, что бы pycharm показывал кликабельные ссылки и мы могли легко перейти
+output-format: pylint
+
+pycodestyle:
+    options:
+        max-line-length: 120
+
+uses:
+  - django
+
+pylint:
+  run: false
+
+bandit:
+  run: true
