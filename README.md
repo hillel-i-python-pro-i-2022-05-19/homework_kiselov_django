@@ -8,6 +8,7 @@ Homework related actions
 
 ## Goals
 
+
 Understand how to work with databases, requests, http protocol.
 Also docker, dockerfile, docker-compose, Makefiles
 
