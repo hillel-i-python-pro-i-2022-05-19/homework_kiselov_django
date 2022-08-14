@@ -1,5 +1,7 @@
 # Django Application
 
+![Main workflow](https://github.com/hillel-i-python-pro-i-2022-05-19/homework_kiselov_django/actions/workflows/main-workflow.yml/badge.svg)
+
 ### Homework
 
 Homework related actions
