@@ -17,6 +17,7 @@ COPY --chmod=755 ./docker/app/start.sh /start.sh
 
 COPY . /usr/src/app/
 
+
 ARG USER=user
 ARG UID=1000
 
