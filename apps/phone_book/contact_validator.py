@@ -9,7 +9,7 @@ def contact_validator(contact_type: str, contact_value: str) -> bool:
     elif contact_type == "Telegram":
         pattern = r"@\w+"
     elif contact_type == "LinkedIn":
-        pattern = "https://www.linkedin.com/in/\w+"
+        pattern = r"https://www.linkedin.com/in/\w+"
 
     result = re.findall(pattern, contact_value)
     if result:

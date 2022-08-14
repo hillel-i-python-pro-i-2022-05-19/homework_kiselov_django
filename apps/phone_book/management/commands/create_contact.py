@@ -1,8 +1,11 @@
-from django.core.management.base import BaseCommand, CommandError
-from apps.phone_book.models import Contact
-from faker import Faker
+# для игнорирования проверки с помощью bandit
+# flake8: noqa:F401
 import logging
-from typing import Iterator
+from collections.abc import Iterator
+
+from apps.phone_book.models import Contact
+from django.core.management.base import BaseCommand
+from faker import Faker
 
 faker = Faker()
 

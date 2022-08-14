@@ -8,6 +8,11 @@ faker==13.14.0
 
 
 # [code_style]-[begin]
+# pre-commit hook
+pre-commit==2.19.0
+# Upgrade syntax
+pyupgrade==2.37.3
+
 # Formatter. Apply codestyle
 #для автоматического форматирования кода
 # будет жёстко применять некоторые правила по стилям
@@ -19,9 +24,11 @@ black==22.6.0
 
 # Нам нужен файл pyproject.toml ->> PEP 518 определяет pyproject.toml как конфигурационный файл для хранения системных
 # требований сборки питоновский проектов ->>Используя Poetry or Flit он может заменить setup.py и setup.cfg файлы.
-pre-commit==2.19.0
 
-
+# Static analysis
+# prospector собирает несколько инструментов в одно
+prospector[with_everything]==1.7.7
+# [code_style]-[end]
 
 
 
