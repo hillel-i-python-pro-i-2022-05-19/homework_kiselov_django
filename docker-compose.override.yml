@@ -1,10 +1,10 @@
 version: "3.8"
 
 services:
-
   app:
     ports:
-      - 8000:8000
-    environment:
-      - TZ=Europe/Kiev
-      - PYTHONUNBUFFERED=1
+      - '8000:8000'
+
+  postgres:
+    ports:
+      - '5432:5432'

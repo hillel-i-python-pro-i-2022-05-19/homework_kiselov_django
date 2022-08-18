@@ -13,6 +13,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+APPS_DIR = BASE_DIR.joinpath("apps")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -37,7 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "apps.phone_book",
+    "apps.sessions_example",
     "phonenumber_field",
+    "apps.users",
 ]
 
 MIDDLEWARE = [
@@ -52,10 +55,19 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "core.urls"
 
+# Зарегистрировать нашу модель пользователя
+# Указать путь к этой модели
+# для модели users часть apps упускается
+AUTH_USER_MODEL = "users.User"
+
+# ссылка для переадресации после логина
+LOGIN_REDIRECT_URL = "main_page"
+LOGOUT_REDIRECT_URL = LOGIN_REDIRECT_URL
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [APPS_DIR.joinpath("templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -85,6 +97,13 @@ DATABASES = {
         "PORT": env.str("POSTGRES_PORT"),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': str(BASE_DIR.joinpath('db', "db.sqlite3")),
+#     }
+# }
 
 
 # Password validation
