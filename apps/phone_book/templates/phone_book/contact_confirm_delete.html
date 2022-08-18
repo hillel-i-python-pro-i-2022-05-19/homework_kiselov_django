@@ -1,0 +1,15 @@
+{% extends 'phone_book/base.html' %}
+
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="Да">
+    {% url 'main_page' as main_url %}
+    <button><a href="{{ main_url }}">Главная</a></button>
+
+</form>
+{% endblock %}
+
+
+

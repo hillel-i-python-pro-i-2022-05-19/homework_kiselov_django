@@ -1,0 +1,37 @@
+repos:
+#   pre-commit hook на pyupgrade
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.37.3
+    hooks:
+      - id: pyupgrade
+        args: [
+          "--py310-plus"
+        ]
+
+#   pre-commit hook на black
+  - repo: https://github.com/psf/black
+    rev: 22.6.0
+    hooks:
+      - id: black
+        # It is recommended to specify the latest version of Python
+        # supported by your project here, or alternatively use
+        # pre-commit's default_language_version, see
+        # https://pre-commit.com/#top_level-default_language_version
+        language_version: python3.8
+
+# По факту мы проверим, что у нас получилось в итоге
+# Prospector — это инструмент для анализа кода Python и вывода информации об ошибках, потенциальных проблемах, нарушениях соглашений и сложности.
+  -   repo: https://github.com/PyCQA/prospector
+      rev: 1.7.7 # The version of Prospector to use, if not 'master' for latest
+      hooks:
+      -   id: prospector
+          additional_dependencies:
+            - ".[with_everything]"
+
+
+
+
+
+#Что бы запустить pre-commit не только на те файлы, которые обновились, а на весь проект:
+#-pre-commit --all-files
+

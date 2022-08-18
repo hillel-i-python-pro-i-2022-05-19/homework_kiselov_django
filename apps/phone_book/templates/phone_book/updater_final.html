@@ -1,0 +1,23 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content%}
+    <style>
+   input {
+    margin: 0; /* Обнуляем значение отступов */
+    margin-top: 15px; /* Значение полей */
+   }
+    </style>
+
+    <title>Изменить контакт</title>
+    <form method="post">
+    {% csrf_token %}
+    {{ form}}
+    <button>Обновить</button>
+    </form>
+     {% url 'main_page' as main_url %}
+    <button><a href="{{ main_url }}">Главная</a></button>
+
+{% endblock %}
+
+
+

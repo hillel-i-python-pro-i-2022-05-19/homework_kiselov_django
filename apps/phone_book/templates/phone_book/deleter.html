@@ -1,0 +1,19 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content %}
+    {% for el in object_list %}
+        <br><a href='{{ el.id }}'>ИМЯ: {{ el.contact_name }}----- Номер телефона: {{ el.phone_value }}</a>
+        </br>
+    {% endfor %}
+     {% url 'main_page' as main_url %}
+    <button><a href="{{ main_url }}">Главная</a></button>
+
+{% endblock %}
+
+
+
+
+
+
+
+
