@@ -1,10 +1,19 @@
 {% block content %}
 
     <title>LOG_IN</title>
+    <p>Необходимо войти:</p>
     <form method="post">
         {% csrf_token %}
         {{ form }}
         <button>Log_in</button>
     </form>
-
+    <a href="{% url 'signup' %}">Sign Up</a>
 {% endblock %}
+
+
+
+
+
+
+
+
