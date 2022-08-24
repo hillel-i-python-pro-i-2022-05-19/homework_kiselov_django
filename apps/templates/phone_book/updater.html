@@ -1,0 +1,18 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content %}
+    <style>
+        input {
+            margin: 0; /* Обнуляем значение отступов */
+            margin_top: 15px; /* Значение полей */
+        }
+    </style>
+    {% for el in object_list %}
+        <p><a href='{{ el.id }}'>ИМЯ: {{ el.contact_name }} ----- Номер телефона: {{ el.phone_value }}</a></p>
+    {% endfor %}
+    {% url 'main_page' as main_url %}
+    <button><a href="{{ main_url }}">Главная</a></button>
+
+{% endblock %}
+
+

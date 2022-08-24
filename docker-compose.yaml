@@ -1,0 +1,27 @@
+version: "3.8"
+
+#создадим volumes
+volumes:
+#  Это хранилище мы можем подключить к разным сервисам
+  postgres_data: {}
+
+services:
+  postgres:
+#    образ, который мы с вами вытягиваем
+    image: postgres:14.4
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  app:
+    build: .
+    restart: always
+    environment:
+      - UTC+2
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - postgres
+    env_file:
+      - .env
