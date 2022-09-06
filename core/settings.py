@@ -51,7 +51,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -149,7 +148,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_MAIN_DIR = APPS_DIR.joinpath('static')
+STATICFILES_MAIN_DIR = APPS_DIR.joinpath("static")
 
 
 # STATIC_ROOT = APPS_DIR.joinpath('static')
@@ -160,10 +159,10 @@ STATICFILES_DIRS = [
 ]
 
 # под каким префиксом будут доступны медиа файлы:
-MEDIA_URL = '/media/'
+MEDIA_URL = "/media/"
 
 # место, где будут храниться наши медиа файлы:
-MEDIA_ROOT = BASE_DIR.joinpath('media/')
+MEDIA_ROOT = BASE_DIR.joinpath("media/")
 
 
 # Default primary key field type
@@ -173,7 +172,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # django-crispy-forms
 # https://django-crispy-forms.readthedocs.io/en/latest/install.html
-
-
-
-

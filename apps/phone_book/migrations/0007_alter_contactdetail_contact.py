@@ -7,14 +7,20 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('phone_book', '0006_alter_contactdetail_contact'),
+        ("phone_book", "0006_alter_contactdetail_contact"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='contactdetail',
-            name='contact',
-            field=models.ForeignKey(blank=True, default=2, on_delete=django.db.models.deletion.CASCADE, related_name='contact', to='phone_book.contact'),
+            model_name="contactdetail",
+            name="contact",
+            field=models.ForeignKey(
+                blank=True,
+                default=2,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="contact",
+                to="phone_book.contact",
+            ),
             preserve_default=False,
         ),
     ]

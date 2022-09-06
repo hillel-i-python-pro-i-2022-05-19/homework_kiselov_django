@@ -1,20 +1,21 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DeleteView, UpdateView, CreateView
-from .models import Contact,Tag, Detail
+from .models import Contact, Tag, Detail
 from django.views import View
 from .forms import CreateForm, DetailForm, UpdateForm
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 from .query_to_dict import querydict_to_dict
 
+
 class MainpageView(TemplateView):
     template_name = "phone_book/base.html"
+
 
 def ReaderView(request: HttpRequest) -> HttpResponse:
     result = Contact.objects.all()
     values = Detail.objects.all()
-    return render(request, 'phone_book/reader.html', {'data': result, 'values':values})
-
+    return render(request, "phone_book/reader.html", {"data": result, "values": values})
 
 
 class DeleterListView(ListView):
@@ -39,7 +40,6 @@ class CreatorView(View):
         form1 = self.form_class1(initial=self.initial)
         return render(request, self.template_name, {"form1": form1})
 
-
     def post(self, request):
         form1 = self.form_class1(request.POST, request.FILES, initial=self.initial)
         if form1.is_valid():
@@ -53,9 +53,11 @@ class CreatorView(View):
             for detail_id in details_form:
                 detail = Detail.objects.get(id=detail_id)
                 Detail.objects.filter(id=detail_id).delete()
-                contact.detail.create(id=detail_id,contact_type=detail.contact_type, contact_value=detail.contact_value, contact=contact)
+                contact.detail.create(
+                    id=detail_id, contact_type=detail.contact_type, contact_value=detail.contact_value, contact=contact
+                )
 
-            contact.creator=request.user
+            contact.creator = request.user
             contact.save()
         return render(request, self.template_name, {"form1": form1})
 
@@ -75,7 +77,7 @@ class UpdaterView(UpdateView):
 
 class TagsCreatorView(CreateView):
     model = Tag
-    fields = ['tag']
+    fields = ["tag"]
     template_name = "phone_book/tags_creator.html"
     success_url = reverse_lazy("contactcreator")
 
@@ -85,16 +87,3 @@ class DetailsCreatorView(CreateView):
     form_class = DetailForm
     template_name = "phone_book/details_creator.html"
     success_url = reverse_lazy("contactcreator")
-
-
-
-
-
-
-
-
-
-
-
-
-

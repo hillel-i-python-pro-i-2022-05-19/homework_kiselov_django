@@ -8,43 +8,63 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('phone_book', '0002_contact_contact_avatar'),
+        ("phone_book", "0002_contact_contact_avatar"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tag', models.CharField(help_text='tag_name', max_length=255, verbose_name='tag')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("tag", models.CharField(help_text="tag_name", max_length=255, verbose_name="tag")),
             ],
         ),
         migrations.RemoveField(
-            model_name='contact',
-            name='phone_value',
+            model_name="contact",
+            name="phone_value",
         ),
         migrations.AddField(
-            model_name='contact',
-            name='birthday',
-            field=models.DateField(default=datetime.datetime(1998, 7, 20, 0, 0), help_text='date_of_birth', verbose_name='Birth'),
+            model_name="contact",
+            name="birthday",
+            field=models.DateField(
+                default=datetime.datetime(1998, 7, 20, 0, 0), help_text="date_of_birth", verbose_name="Birth"
+            ),
         ),
         migrations.AlterField(
-            model_name='contact',
-            name='contact_name',
-            field=models.CharField(help_text='Contact_name', max_length=255, unique=True, verbose_name='Name'),
+            model_name="contact",
+            name="contact_name",
+            field=models.CharField(help_text="Contact_name", max_length=255, unique=True, verbose_name="Name"),
         ),
         migrations.CreateModel(
-            name='ContactDetail',
+            name="ContactDetail",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('contact_type', models.CharField(choices=[('Phone', 'phones'), ('email', 'Email'), ('Telegram', 'telegram'), ('LinkedIn', 'Linkedin')], default='Phone', max_length=255, verbose_name='Contact_type')),
-                ('contact_value', models.CharField(max_length=255, unique=True, verbose_name='Contact_value')),
-                ('contact', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='contact', to='phone_book.contact')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "contact_type",
+                    models.CharField(
+                        choices=[
+                            ("Phone", "phones"),
+                            ("email", "Email"),
+                            ("Telegram", "telegram"),
+                            ("LinkedIn", "Linkedin"),
+                        ],
+                        default="Phone",
+                        max_length=255,
+                        verbose_name="Contact_type",
+                    ),
+                ),
+                ("contact_value", models.CharField(max_length=255, unique=True, verbose_name="Contact_value")),
+                (
+                    "contact",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, related_name="contact", to="phone_book.contact"
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='contact',
-            name='tags',
-            field=models.ManyToManyField(related_name='tags', to='phone_book.tag'),
+            model_name="contact",
+            name="tags",
+            field=models.ManyToManyField(related_name="tags", to="phone_book.tag"),
         ),
     ]

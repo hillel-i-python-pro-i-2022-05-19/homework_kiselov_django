@@ -1,7 +1,16 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
-from .views import MainpageView, ReaderView, DeleterView, CreatorView, DeleterListView, UpdaterListView, UpdaterView, \
-    TagsCreatorView, DetailsCreatorView
+from .views import (
+    MainpageView,
+    ReaderView,
+    DeleterView,
+    CreatorView,
+    DeleterListView,
+    UpdaterListView,
+    UpdaterView,
+    TagsCreatorView,
+    DetailsCreatorView,
+)
 
 urlpatterns = [
     path("", MainpageView.as_view(), name="main_page"),
