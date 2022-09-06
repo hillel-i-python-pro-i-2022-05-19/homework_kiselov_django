@@ -2,12 +2,24 @@
 
 {% block content %}
 
-    {% for el in object_list %}
-        <p>ИМЯ: {{ el.contact_name }}----- Номер телефона: {{ el.phone_value }}</p>
-        <p>Контакт добавил: {{ el.creator_name }}</p>
+    {% for el in data %}
+        <br>Имя: {{el.contact_name}}</br>
+        <br>День Рождения: {{el.birthday}}</br>
+        <br>Теги: {% for tag in el.tags.all %}
+            {{tag.tag}},
+        {% endfor %}
+        </br>
+        {% for l in values %}
+            {% if l.contact.contact_name == el.contact_name %}
+            <br>{{l.contact_type}}: {{l.contact_value}}</br>
+            {% endif %}
+            {% endfor %}
+        {% if el.contact_avatar %}
+            <img class="av" src="{{ el.contact_avatar.url }}" alt="avatar"/>
+        {% endif %}
+        <p>Контакт добавил: {{ el.creator }}</p>
     {% endfor %}
-    {% url 'main_page' as main_url %}
-    <button><a href="{{ main_url }}">Главная</a></button>
+
 {% endblock %}
 
 

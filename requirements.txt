@@ -29,6 +29,16 @@ black==22.6.0
 # prospector собирает несколько инструментов в одно
 prospector[with_everything]==1.7.7
 # [code_style]-[end]
+pillow==9.2.0
+
+# Forms
+# Можно использовать шаблоны опираясь на разные
+# (например Bootstrap5)
+# Это необходимо подключить в third party приложения(в Settings)
+django-crispy-forms==1.14.0
+crispy-bootstrap5==0.6.0
+
+
 
 
 

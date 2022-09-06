@@ -1,0 +1,17 @@
+{% extends 'phone_book/base.html' %}
+{#позволяет загрузить набор тегов, которые использовать в шаблоне#}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <title>Добавление нового тега</title>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit">Добавить</button>
+    </form>
+    {% url 'main_page' as main_url %}
+    <button><a href="{{ main_url }}">Главная</a></button>
+
+{% endblock %}
+

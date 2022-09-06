@@ -8,7 +8,7 @@
         }
     </style>
     {% for el in object_list %}
-        <p><a href='{{ el.id }}'>ИМЯ: {{ el.contact_name }} ----- Номер телефона: {{ el.phone_value }}</a></p>
+        <p><a href='{{ el.id }}'>Изменить контакт: {{ el.contact_name }}</a></p>
     {% endfor %}
     {% url 'main_page' as main_url %}
     <button><a href="{{ main_url }}">Главная</a></button>
