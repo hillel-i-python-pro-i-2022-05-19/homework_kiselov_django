@@ -1,12 +1,21 @@
 {% extends 'phone_book/base.html' %}
+{% load static %}
 
 {% block content %}
-
     <title>Sign_up</title>
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button>Sign_up</button>
-    </form>
+    <p class="greetings-text">Добро пожаловать!</p>
+    <div class="sign_up">
+        <div class="sign_form">
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button>Sign_up</button>
+            </form>
+        </div>
+
+        <div class="photo1">
+            <img src="{% static 'images/флаг_Украины.jpg'%}" alt="My image" class="flag_photo">
+        </div>
+    </div>
 
 {% endblock %}

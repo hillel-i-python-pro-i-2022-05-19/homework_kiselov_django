@@ -42,8 +42,12 @@ RUN chown --recursive ${USER} ${WORKDIR}
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/start.sh"]
 
+VOLUME ${WORKDIR}/media
 #Декларируем порт, что бы потом его пробросить:
 EXPOSE 8000
+
+
+
 
 
 

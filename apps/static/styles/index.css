@@ -1,0 +1,33 @@
+.greetings-text{
+    text-shadow: 0 1px 1px fuchsia;
+}
+.sign_up {
+    /*height: 600px;*/
+    /*width: 1000px;*/
+    display: flex;
+    /*align-items: end;*/
+    /*justify-content: right;*/
+}
+
+.photo1 {
+    height: 350px;
+    /*width: 1000px;*/
+    justify-content: right;
+}
+
+.sign_form {
+    width: 1200px;
+}
+
+.flag_photo {
+    height: 50px;
+}
+
+
+.av {
+    height: 250px;
+}
+
+/*.name_field {*/
+    /*margin: 20px;*/
+/*}*/

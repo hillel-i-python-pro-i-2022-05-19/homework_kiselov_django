@@ -1,3 +1,7 @@
+.PHONY: init-dev-i-create-superuser
+init-dev-i-create-superuser:
+	@DJANGO_SUPERUSER_PASSWORD=admin123 python manage.py createsuperuser --user admin --email admin@gmail.com --no-input
+
 # Make some initialization steps. For example, copy configs.
 .PHONY: init-configs-i-dev
 init-configs-i-dev:
@@ -78,7 +82,6 @@ pre-commit-run:
 	@pre-commit run --all-files
 
 
-
 # Эта инструкция указывает docker-compose использовать Docker CLI при выполнении сборки. Вы должны увидеть тот же результат сборки,
 # но начиная с экспериментального предупреждения.
 # COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build
@@ -91,5 +94,6 @@ pre-commit-run:
 
 # По сути DOCKER_BUILDKIT это сборщик, который имеет дополнительные фичи, такие как кеширование, конкурентность и т.д
 # ускоряет сборку контейнеров
+
 
 

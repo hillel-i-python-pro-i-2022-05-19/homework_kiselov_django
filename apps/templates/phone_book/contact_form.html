@@ -4,24 +4,24 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-    <title>Изменить контакт</title>
+    <title>Добавление нового контакта</title>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <p>{{ form.contact_name | as_crispy_field }}</p>
-        <p>{{ form.birthday | as_crispy_field }}</p>
-        <p>{{ form.tags | as_crispy_field }}</p>
+        <p>{{ form1.contact_name | as_crispy_field }}</p>
+        <p>{{ form1.birthday | as_crispy_field }}</p>
+        <p>{{ form1.tags | as_crispy_field }}</p>
 
         <div>
             <a href = {% url 'tagscreator' %}>Добавить новый тег</a></li>
         </div>
 
         <div>
-            <p>Добавить Аватар:  {{ form.contact_avatar  }}</p>
+            <p>Добавить Аватар:  {{ form1.contact_avatar  }}</p>
         </div>
 
         <div>
-            <p>{{ form.details }}</p>
+            <p>{{ form1.details }}</p>
         </div>
 
         <div>
@@ -34,3 +34,9 @@
     <button><a href="{{ main_url }}">Главная</a></button>
 
 {% endblock %}
+
+
+
+
+
+

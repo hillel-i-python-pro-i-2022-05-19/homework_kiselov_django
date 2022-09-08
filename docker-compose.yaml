@@ -21,6 +21,8 @@ services:
     environment:
       - UTC+2
       - PYTHONUNBUFFERED=1
+    volumes:
+      - './media/:/wd/media:rw'
     depends_on:
       - postgres
     env_file:
