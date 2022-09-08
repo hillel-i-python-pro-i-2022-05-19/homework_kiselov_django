@@ -1,0 +1,12 @@
+{% extends 'phone_book/base.html' %}
+
+{% block content %}
+
+    <title>Sign_up</title>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>Sign_up</button>
+    </form>
+
+{% endblock %}
