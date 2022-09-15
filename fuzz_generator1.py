@@ -25,11 +25,9 @@ def generator(word_length: int, quantity: int, alphabet: T_ALPHABET) -> Iterable
 
         if previous_position == current_position:
             if word_as_list_of_indexes[current_position] <= max_index_of_char_in_alphabet:
-                # print("Первый иф")
                 yield ''.join([alphabet[index] for index in word_as_list_of_indexes])
                 word_as_list_of_indexes[current_position] += 1
             else:
-                # print("Второй иф")
                 word_as_list_of_indexes[current_position] = min_index_of_char_in_alphabet
                 previous_position = current_position
                 current_position -= 1
@@ -39,7 +37,6 @@ def generator(word_length: int, quantity: int, alphabet: T_ALPHABET) -> Iterable
             yield ''.join(alphabet[index] for index in word_as_list_of_indexes)
 
             if word_as_list_of_indexes[previous_position] < max_index_of_char_in_alphabet:
-                print("СЮДА")
                 word_as_list_of_indexes[previous_position] += 1
             if word_as_list_of_indexes[current_position] < max_index_of_char_in_alphabet:
                 word_as_list_of_indexes[current_position] += 1
