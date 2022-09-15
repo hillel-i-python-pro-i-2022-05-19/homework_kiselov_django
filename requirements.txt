@@ -30,6 +30,10 @@ black==22.6.0
 prospector[with_everything]==1.7.7
 # [code_style]-[end]
 
+# TESTS
+pytest==7.1.2
+# что бы проверить скорость чего либо
+pytest-benchmark==3.4.1
 
 
 
